@@ -16,9 +16,9 @@ import java.util.UUID;
 public class Producer {
     public static void main(String[] args) throws Exception{
         final Logger logger = LoggerFactory.getLogger(Consumer.class);
-        String topic = "first_topic";
+        String topic = "TutorialTopic";
         Properties properties = new Properties();
-        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"pr:9092");
+        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"pr4-centos:9092");
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class.getName());
         //properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, groupId);

@@ -11,13 +11,13 @@ public class KafkaHelloWorld {
     public static void main(String[] args) throws Exception {
         final Logger logger = LoggerFactory.getLogger(KafkaHelloWorld.class);
         Properties properties = new Properties();
-        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "pr:9092");
+        properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "pr4-centos:9092");
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
         for (int i = 0; i < 10; i++) {
-            ProducerRecord<String, String> rec = new ProducerRecord<String, String>("first_topic", "Hello World" +i);
+            ProducerRecord<String, String> rec = new ProducerRecord<String, String>("TutorialTopic", "Hello World" +i);
             producer.send(rec, new Callback() {
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if (e == null) {
