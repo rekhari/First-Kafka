@@ -61,6 +61,16 @@
         </dependency>
 
     </dependencies>
+    <profiles>
+        <profile>
+            <id>local</id>
+
+            <properties>
+                <url>pr4-centos:5432/test</url>
+                <schema>First</schema>
+            </properties>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>
@@ -69,10 +79,10 @@
                     <configuration>
                         <changeLogFile>liquibase/changelog.xml</changeLogFile>
                         <driver>org.postgresql.Driver</driver>
-                        <url>jdbc:postgresql://pr4-centos:5432/test</url>
+                        <url>jdbc:postgresql://${url}</url>
                         <username>postgres</username>
                         <password>postgres</password>
-                        <defaultSchemaName>First</defaultSchemaName>
+                        <defaultSchemaName>${schema}</defaultSchemaName>
                         <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
                         <outputChangeLogFile>myGenChangeLog.xml</outputChangeLogFile>
                     </configuration>
